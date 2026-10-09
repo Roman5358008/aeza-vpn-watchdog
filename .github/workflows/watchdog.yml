@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   monitor:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     env:
       AEZA_API_KEY: ${{ secrets.AEZA_API_KEY }}
@@ -25,10 +25,10 @@ jobs:
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Restore watchdog state
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: .watchdog-state/state.json
           key: aeza-watchdog-state-${{ github.run_id }}
@@ -59,7 +59,7 @@ jobs:
 
       - name: Save watchdog state
         if: always()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: .watchdog-state/state.json
           key: aeza-watchdog-state-${{ github.run_id }}
