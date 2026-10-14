@@ -26,7 +26,7 @@ SOCKS_ADDR = "127.0.0.1:1080"
 CHECK_URL = "https://www.cloudflare.com/cdn-cgi/trace"
 COOLDOWN_SECONDS = 6 * 60 * 60
 MAX_REBOOTS_PER_24H = 2
-FAIL_RUNS_BEFORE_REBOOT = 2
+FAIL_RUNS_BEFORE_REBOOT = 1
 
 
 def now_ts() -> int:
